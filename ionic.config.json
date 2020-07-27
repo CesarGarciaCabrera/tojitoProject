@@ -1,0 +1,7 @@
+{
+  "name": "tojitoProject",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
