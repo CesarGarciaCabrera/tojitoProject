@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">{{dataneg.nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+  <!--Slides para imagenes-->
+  <ion-slides mode="ios" pager="ios" style="height: 25%;">
+      <ion-slide *ngFor="let item of [1,1,1,1,1]">
+          <img src="{{dataneg.img}}" alt="...">
+      </ion-slide>
+  </ion-slides>
+  
+  <!--Item de nombre y direccion-->
+  <ion-item>
+      <ion-icon slot="end" name="camera-outline" size="large" style="margin-right: 2%;"></ion-icon>
+      <ion-text>
+          <h1>{{dataneg.nombre}}</h1>
+          <p>{{dataneg.calle}}, {{dataneg.municipio}}</p>
+      </ion-text>
+  </ion-item>
+
+  <!--Item de Evaluacion
+  <ion-item>
+      <h4>Valoracion</h4>
+      <ion-icon slot="end" name="star" *ngFor="let item of [1,1,1,1,1]"></ion-icon>
+  </ion-item>
+  -->
+
+  <!--Item horarios-->
+  <ion-item>
+    <ion-icon slot="start" name="time-outline"></ion-icon>
+      <ion-label>
+          <p>Horario</p>
+          <h2>{{dataneg.horario}}</h2>
+      </ion-label>
+  </ion-item>
+  <!--Item de contacto-->
+  <ion-item>
+      <ion-icon slot="start" name="call-outline"></ion-icon>
+      <ion-label>
+        <p>Contacto</p>
+        <h2>999-999-99-99</h2>
+      </ion-label>
+  </ion-item>
+  <!--Item de servicios-->
+  <ion-item>
+      <h4>Servicios</h4>
+  </ion-item>
+  <ion-item *ngFor="let item of [1,1,1]">
+      <ion-icon slot="start" name="server-outline"></ion-icon>
+      <ion-label>Service</ion-label>
+  </ion-item>
+  <!--Item de descripcion del restaurant-->
+  <ion-item>
+      <ion-text>
+          <h3>Conocenos</h3>
+          <p>{{dataneg.descripcion}}</p>
+      </ion-text>
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <div style="float: left; width: 50%;">
+          <ion-button expand="block" color="danger" disabled="true">
+              Menú
+          </ion-button>
+      </div>
+      <div style="float: left; width: 50%;">
+          <ion-button expand="block" color="success" disabled="true">
+              Mapa
+          </ion-button>
+      </div>
+  </ion-toolbar>
+</ion-footer>

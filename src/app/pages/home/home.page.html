@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-card *ngFor="let item of dataneg">
+    <ion-card-header [routerLink]="['/detalles/', item.id]">
+      <ion-img src="{{item.img}}"></ion-img>
+      <ion-card-subtitle>{{item.desc}}</ion-card-subtitle>
+      <ion-card-title>{{item.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon slot="start" name="location"></ion-icon>
+          <ion-label>{{item.calle}}, {{item.municipio}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="time"></ion-icon>
+          <ion-label>{{item.horario}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
