@@ -1,13 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Bienvenido</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/busqueda">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
 
-  <ion-card *ngFor="let item of dataneg">
+  <ion-card *ngFor="let item of dataneg" mode="md">
     <ion-card-header [routerLink]="['/detalles/', item.id]">
-      <ion-img src="{{item.img}}"></ion-img>
+      <ion-img src="{{item.img}}" alt="..."></ion-img>
       <ion-card-subtitle>{{item.desc}}</ion-card-subtitle>
       <ion-card-title>{{item.nombre}}</ion-card-title>
     </ion-card-header>

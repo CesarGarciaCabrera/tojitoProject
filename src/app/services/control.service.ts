@@ -72,4 +72,19 @@ export class ControlService {
       duration: 3000
     }).then( toasData => toasData.present());
   }
+
+  //Cerrar sesión
+  async singOut(){
+    let loader = this.loadingCtrl.create({
+      message: 'Cerrando sesión'
+    });
+    (await loader).present();
+    this.afAuth.signOut().then( exit => {
+      console.log('Se ha cerrado la sesión');
+      this.navCtrl.navigateRoot('login');
+    }).catch( exit => {
+      console.log(exit);
+    });
+    (await loader).dismiss();
+  }
 }

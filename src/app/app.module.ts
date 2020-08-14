@@ -13,7 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore'
-import { AngularFireStorageModule } from '@angular/fire/storage'
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    PipesModule,
     AngularFireModule.initializeApp(environment.FIREBASEConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Buscar" inputmode="text" clear-icon (ionChange)="onSearchChange($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slide *ngIf="txtBuscar === ''">
+    <ion-text color="medium">
+      <ion-icon name="search" style="font-size: 80px;"></ion-icon>
+      <h3>¿Hambre? <br> Busca algo de comer </h3>
+    </ion-text>
+  </ion-slide>
+
+  <ion-item *ngFor="let item of nomRes | filtro: txtBuscar: 'nombre'" [routerLink]="['/detalles/', item.id]" detail>
+    <ion-label>{{item.nombre}}</ion-label>
+  </ion-item>
+
+</ion-content>
