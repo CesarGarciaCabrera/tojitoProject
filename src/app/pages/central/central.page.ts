@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ControlService } from 'src/app/services/control.service';
 
 @Component({
   selector: 'app-central',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CentralPage implements OnInit {
 
-  constructor() { }
+  serv: ControlService = this.ctrlService;
+
+  constructor(
+    private ctrlService: ControlService,
+  ) { }
 
   ngOnInit() {
+  }
+
+  disabled(){
+    this.serv.showToast('Esta opcion aún no esta disponible por el momento, seguiremoe trabajando.')
   }
 
 }

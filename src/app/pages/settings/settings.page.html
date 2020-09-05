@@ -5,9 +5,16 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{user.correo}}</ion-card-subtitle>
+      <ion-card-title>Bienvenido {{user.nombre}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
   
   <ion-list>
-    <ion-item>
+    <ion-item (click)="ruta()">
       <ion-icon slot="start" name="person-outline"></ion-icon>
       <ion-label>
         <h2>Datos de la cuenta</h2>

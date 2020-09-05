@@ -1,15 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Bienvenido</ion-title>
-    <ion-buttons slot="end">
-      <ion-button routerLink="/busqueda">
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/busqueda">
+      <ion-icon name="search"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
   <ion-card *ngFor="let item of dataneg" mode="md">
     <ion-card-header [routerLink]="['/detalles/', item.id]">
