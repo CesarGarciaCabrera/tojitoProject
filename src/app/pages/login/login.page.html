@@ -1,96 +1,95 @@
 <ion-content>
 
-  <ion-slide>
+  <ion-card class="intro">
+    <ion-card-header>
+      <ion-avatar class="logo"> <img src="assets/icon/logotojito.png"/> </ion-avatar>
+      <h1 class="ion-text-center">Tojito</h1>
+    </ion-card-header>
+  </ion-card>
 
-    <ion-card *ngIf="r == true"class="animate__slideInUp animate__animated">
-      <ion-card-header>
-        <ion-avatar class="logo"> <img src="assets/icon/logotojito.png"/> </ion-avatar>
-        <h1>Tojito</h1>
-        <ion-card-subtitle>Iniciar sesión</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <form #formulario="ngForm">
-          <ion-item>
-            <ion-icon slot="start" name="at"></ion-icon>
-            <ion-input
-              type="email"
-              name="email"
-              placeholder="Ingresa un correo"
-              [(ngModel)]="user.correo"
-              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-              required>
-            </ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="shield"></ion-icon>
-            <ion-input
-              type="password"
-              name="pass"
-              placeholder="Ingresa tu contraseña"
-              [(ngModel)]="user.contrasena"
-              required>
-            </ion-input>
-          </ion-item>
-        </form>
-      </ion-card-content>
-      <ion-button expand="full" color="success" (click)="entrar(user)" [disabled]="formulario.invalid">
-        Entrar
-      </ion-button>
-    </ion-card>
-  
-    <ion-card *ngIf="r == false" class="animate__slideInUp animate__animated">
-      <ion-card-header>
-        <ion-avatar class="logo"> <img src="assets/icon/logotojito.png"/> </ion-avatar>
-        <h1>Tojito</h1>
-        <ion-card-subtitle>Registro de usuario</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <form #formulario="ngForm">
-          <ion-item>
-            <ion-icon slot="start" name="person"></ion-icon>
-            <ion-input
-              type="text"
-              name="username"
-              placeholder="Nombre de usuario"
-              [(ngModel)]="user.nombre"
-              required>
-            </ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="at"></ion-icon>
-            <ion-input
-              type="email"
-              name="email"
-              placeholder="Ingresa un correo"
-              [(ngModel)]="user.correo"
-              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-              required>
-            </ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="shield"></ion-icon>
-            <ion-input
-              type="password"
-              name="pass"
-              placeholder="Ingresa tu contraseña"
-              [(ngModel)]="user.contrasena"
-              required>
-            </ion-input>
-          </ion-item>
-        </form>
-      </ion-card-content>
-      <ion-button expand="full" color="primary" (click)="registro(user)" [disabled]="formulario.invalid">
-        Crear cuenta
-      </ion-button>
-    </ion-card>
+  <ion-card *ngIf="r == true" class="animate__slideInUp animate__animated intro">
+    <ion-card-header class="ion-text-center">
+      <ion-card-subtitle>Iniciar sesión</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form #formulario="ngForm" class="intro">
+        <ion-item>
+          <ion-icon slot="start" name="at"></ion-icon>
+          <ion-input
+            type="email"
+            name="email"
+            placeholder="Ingresa un correo"
+            [(ngModel)]="user.correo"
+            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            required>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="shield"></ion-icon>
+          <ion-input
+            type="password"
+            name="pass"
+            placeholder="Ingresa tu contraseña"
+            [(ngModel)]="user.contrasena"
+            required>
+          </ion-input>
+        </ion-item>
+      </form>
+    </ion-card-content>
+    <ion-button expand="full" color="success" (click)="entrar(user)" [disabled]="formulario.invalid">
+      Entrar
+    </ion-button>
+  </ion-card>
 
-  </ion-slide>
-  
+  <ion-card *ngIf="r == false" class="animate__slideInUp animate__animated intro">
+    <ion-card-header class="ion-text-center">
+      <ion-card-subtitle>Registro de usuario</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form #formulario="ngForm">
+        <ion-item>
+          <ion-icon slot="start" name="person"></ion-icon>
+          <ion-input
+            type="text"
+            name="username"
+            placeholder="Nombre de usuario"
+            [(ngModel)]="user.nombre"
+            required>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="at"></ion-icon>
+          <ion-input
+            type="email"
+            name="email"
+            placeholder="Ingresa un correo"
+            [(ngModel)]="user.correo"
+            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            required>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="shield"></ion-icon>
+          <ion-input
+            type="password"
+            name="pass"
+            placeholder="Ingresa tu contraseña"
+            [(ngModel)]="user.contrasena"
+            required>
+          </ion-input>
+        </ion-item>
+      </form>
+    </ion-card-content>
+    <ion-button expand="full" color="primary" (click)="registro(user)" [disabled]="formulario.invalid">
+      Crear cuenta
+    </ion-button>
+  </ion-card>
+
 </ion-content>
 
 <ion-footer class="ion-no-border">
   <ion-toolbar>
-    <ion-button expand="full" fill="clear" (click)="changeScreen()">
+    <ion-button expand="full" fill="clear" (click)="changeScreen()" color="medium">
       {{opc}}
     </ion-button>
   </ion-toolbar>

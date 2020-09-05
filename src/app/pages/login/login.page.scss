@@ -1,6 +1,13 @@
+.intro{
+    background: rgba(0, 0, 0, 0);
+}
 
 .logo{
     margin: 5% auto 5% auto;
     width: 50%;
     height: 50%;
+}
+
+ion-item {
+    --background: rgba(0, 0, 0, 0);
 }
