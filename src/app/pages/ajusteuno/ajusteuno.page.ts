@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { ControlService } from 'src/app/services/control.service';
+import { DeletePage } from '../delete/delete.page';
 
 @Component({
   selector: 'app-ajusteuno',
@@ -19,7 +20,8 @@ export class AjusteunoPage implements OnInit {
   constructor(
     private afAuth: AngularFireAuth,
     private alertCtrl: AlertController,
-    private ctrlService: ControlService
+    private ctrlService: ControlService,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class AjusteunoPage implements OnInit {
 
   async updateName(){
     let alert = await this.alertCtrl.create({
-      header: 'Nuevo nombre de usuario',
+      header: 'Actualizar nombre',
       message: 'Ingresa el nuevo nombre de usuario.',
       inputs: [
         {
@@ -67,6 +69,13 @@ export class AjusteunoPage implements OnInit {
     (await this.afAuth.currentUser).updateProfile({
       displayName: name
     });
+  }
+
+  async presentModal(){
+    const modal = await this.modalCtrl.create({
+      component: DeletePage
+    })
+    await modal.present();
   }
 
 }

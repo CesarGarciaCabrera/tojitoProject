@@ -9,9 +9,27 @@
 
 <ion-content>
 
+  <ion-item>
+    <ion-icon slot="start" name="at-circle"></ion-icon>
+    <ion-label>
+      <p>Correo electrónico vinculado</p>
+      <h2>{{user.correo}}</h2>
+    </ion-label>
+  </ion-item>
+  
   <ion-item (click)="updateName()">
     <ion-icon slot="start" name="person"></ion-icon>
     <ion-label>Cambiar nombre de usuario</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="start" name="shield"></ion-icon>
+    <ion-label>Actualizar contraseña</ion-label>
+  </ion-item>
+
+  <ion-item (click)="presentModal()">
+    <ion-icon slot="start" name="trash" color="danger"></ion-icon>
+    <ion-label color="danger">Eliminar cuenta</ion-label>
   </ion-item>
 
 </ion-content>

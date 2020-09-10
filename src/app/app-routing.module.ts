@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule) },
   { path: 'detalles/:id', loadChildren: () => import('./pages/detalles/detalles.module').then( m => m.DetallesPageModule) },
   { path: 'busqueda', loadChildren: () => import('./pages/busqueda/busqueda.module').then( m => m.BusquedaPageModule) },
-  { path: 'ajusteuno', loadChildren: () => import('./pages/ajusteuno/ajusteuno.module').then( m => m.AjusteunoPageModule) }
+  { path: 'ajusteuno', loadChildren: () => import('./pages/ajusteuno/ajusteuno.module').then( m => m.AjusteunoPageModule) },
+  { path: 'ajustedos', loadChildren: () => import('./pages/ajustedos/ajustedos.module').then( m => m.AjustedosPageModule) }
 ];
 
 @NgModule({

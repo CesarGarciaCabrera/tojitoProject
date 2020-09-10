@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../interfaces/usuario';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { ToastController, LoadingController, NavController, ActionSheetController } from '@ionic/angular';
+import { ToastController, LoadingController, NavController } from '@ionic/angular';
+import { Negocio } from '../interfaces/negocio';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -15,9 +16,8 @@ export class ControlService {
     private afAuth: AngularFireAuth,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
-    private navCtrl: NavController,
     private firestore: AngularFirestore,
-    private actionSheetCtrl: ActionSheetController
+    private navCtrl: NavController
   ) { }
 
   //Página de inicio de sesión (Login Page)
@@ -30,7 +30,6 @@ export class ControlService {
     try{
       await this.afAuth.signInWithEmailAndPassword(us.correo, us.contrasena).then(data => {
         console.log(data);
-        this.showToast('Bienvenido ' + data.user.displayName)
         this.navCtrl.navigateRoot('central');
       })
     }
@@ -50,7 +49,7 @@ export class ControlService {
     try{
       await this.afAuth.createUserWithEmailAndPassword(us.correo, us.contrasena).then(data => {
         this.data(us);
-        this.showToast('Usuario registrado');
+        this.showToast('Bienvenido a Tojito '+us.nombre);
       });
     } catch(e){
       console.log(e);
@@ -87,4 +86,27 @@ export class ControlService {
     });
     (await loader).dismiss();
   }
+
+  //Agregar a colección Favoritos
+  async crearPost(neg: Negocio, user, id){
+    try{  
+      await this.firestore.collection(user).doc(id).set(neg);
+      this.showToast('Restaurante agregado a favoritos.')
+    }
+    catch(e){
+      this.showToast(e);
+    }
+  }
+
+  //Eliminar de colección Favoritos
+  async eliminarPost(user, id){
+    await this.firestore.collection(user).doc(id).delete().then( d => {
+      this.showToast('Restaurante eliminado de favoritos.')
+    }).catch( e => {
+      console.log(e);
+    })
+  }
+
+  //Eliminar cuenta de usuario
+  
 }

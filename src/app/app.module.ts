@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { PipesModule } from './pipes/pipes.module';
+import { ComponentesModule } from './components/componentes.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { PipesModule } from './pipes/pipes.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     PipesModule,
+    ComponentesModule,
     AngularFireModule.initializeApp(environment.FIREBASEConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { FavoritosPageRoutingModule } from './favoritos-routing.module';
 
 import { FavoritosPage } from './favoritos.page';
+import { ComponentesModule } from 'src/app/components/componentes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FavoritosPageRoutingModule
+    FavoritosPageRoutingModule,
+    ComponentesModule
   ],
   declarations: [FavoritosPage]
 })

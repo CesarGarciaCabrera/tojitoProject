@@ -1,16 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-capitalize">favoritos</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="favoritos"></app-header>
 
 <ion-content>
 
-  <ion-slide>
+  <ion-slide *ngIf="numfav == 0">
     <ion-text color="medium">
       <ion-icon name="star" style="font-size: 80px;"></ion-icon>
       <h3>No hay nada por aquí. <br> Explora y encuentra tus restaurantes favoritos. </h3>
     </ion-text>
   </ion-slide>
+
+  <ion-item *ngFor="let item of dataneg" [routerLink]="['/detalles/', item.id]">
+    <ion-thumbnail slot="start">
+      <img src="{{item.img}}"/>
+    </ion-thumbnail>
+    <ion-label>{{item.nombre}}</ion-label>
+  </ion-item>
 
 </ion-content>

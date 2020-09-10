@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { LoadingController } from '@ionic/angular';
 import { ControlService } from 'src/app/services/control.service';
@@ -17,8 +15,6 @@ export class HomePage implements OnInit {
   serv: ControlService = this.ctrlService;
 
   constructor(
-    private afStorage: AngularFireStorage,
-    private afAuth: AngularFireAuth,
     private firestore: AngularFirestore,
     private loadingCtrl: LoadingController,
     private ctrlService: ControlService

@@ -1,26 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Ajustes</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="ajustes"></app-header>
 
 <ion-content>
 
   <ion-card mode="md">
     <ion-card-header class="ion-text-center">
-      <ion-card-subtitle>{{user.correo}}</ion-card-subtitle>
-      <ion-card-title>Bienvenido {{user.nombre}}</ion-card-title>
+      <ion-avatar class="logo"> <img src="assets/icon/userNull.jpg"/> </ion-avatar>
+      <ion-card-title>{{user.nombre}}</ion-card-title>
     </ion-card-header>
   </ion-card>
   
   <ion-list>
-    <ion-item (click)="ruta()">
+
+    <ion-item (click)="ruta()" detail>
       <ion-icon slot="start" name="person-outline"></ion-icon>
       <ion-label>
         <h2>Datos de la cuenta</h2>
         <p>Actualizar nombre, email, contraseña</p>
       </ion-label>
     </ion-item>
+
+    <ion-item routerLink="/ajustedos" detail>
+      <ion-icon slot="start" name="briefcase-outline"></ion-icon>
+      <ion-label>
+        <h2>¡Tengo un negocio!</h2>
+        <p>Agrega tu negocio para que se conozca.</p>
+      </ion-label>
+    </ion-item>
+
     <ion-item (click)="confirmExit()">
       <ion-icon slot="start" name="log-out-outline"></ion-icon>
       <ion-label>Cerrar sesión</ion-label>

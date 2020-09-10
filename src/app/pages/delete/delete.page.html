@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Eliminar cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+      
+      ¿Te vas? Eso nos pone muy tristes, pero también nos motiva a seguir mejorando
+      para brindar una mejor experiencia a nuestros futuros usuarios. No te olvides
+      de dejar tus comentarios, tu opinión nos importa.
+      <br>
+      El correo:
+      <br><br>
+      <ion-item class="ion-text-center">
+        <ion-label><strong>{{user.correo}}</strong></ion-label>
+      </ion-item>
+      <br><br>
+      Dejará de estar vinculado a los servicios de <i>Tojito Enterprise</i>, así como
+      el acceso a esta plataforma, los datos serán eliminados de forma <strong>permanente. </strong>
+      Aún así podrás volver a registrate en el momento que quieras.
+      <br>
+      <br>
+      Gracias por confiar en nosotros, esperamos verte pronto por aquí.
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer class="ion-no-border" translucent>
+  <ion-toolbar>
+
+    <div style="float: left; width: 50%;">
+      <ion-button color="medium" (click)="cancel()" expand="block">
+        Cancelar
+      </ion-button>
+    </div>
+    <div style="float: left; width: 50%;">
+      <ion-button color="orange" (click)="delete()" expand="block">
+        Eliminar
+      </ion-button>
+    </div>
+
+  </ion-toolbar>
+</ion-footer>
