@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualiza contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+      Como medida de seguridad para nuestros usuarios el reestablecimiento
+      de la contraseña de tu cuenta Tojito se hace mediante la dirección de
+      correo eletrónico con la que se registró en la plataforma, de esta manera
+      la única forma de cambiar la contraseña es teniendo acceso a la cuenta de
+      correo.
+      <br><br>
+      Por favor, ingresa la dirección de correo electrónico con la que te registraste
+      previamente:
+      <br><br>
+      <form #formulario="ngForm" class="intro">
+        <ion-item>
+          <ion-input
+            type="email"
+            name="email"
+            placeholder="Ingresa tu correo electrónico"
+            [(ngModel)]="email"
+            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            required>
+          </ion-input>
+        </ion-item>
+      </form>
+      <br><br>
+      Asegurate de que la dirección de correo esté bien escrita, ya que es la única forma
+      en la que podremos reestablecer tu contraseña.
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div style="float: left; width: 50%;">
+      <ion-button color="medium" (click)="cancel()" expand="block">
+        Cancelar
+      </ion-button>
+    </div>
+    <div style="float: left; width: 50%;">
+      <ion-button color="purple" (click)="updatePass()" expand="block" [disabled]="formulario.invalid">
+        Enviar correo
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

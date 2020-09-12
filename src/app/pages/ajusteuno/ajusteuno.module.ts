@@ -9,17 +9,21 @@ import { AjusteunoPageRoutingModule } from './ajusteuno-routing.module';
 import { AjusteunoPage } from './ajusteuno.page';
 import { DeletePage } from '../delete/delete.page';
 import { DeletePageModule } from '../delete/delete.module';
+import { ConfigpassPage } from '../configpass/configpass.page';
+import { ConfigpassPageModule } from '../configpass/configpass.module';
 
 @NgModule({
   entryComponents: [
-    DeletePage
+    DeletePage, 
+    ConfigpassPage
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     AjusteunoPageRoutingModule,
-    DeletePageModule
+    DeletePageModule,
+    ConfigpassPageModule
   ],
   declarations: [AjusteunoPage]
 })

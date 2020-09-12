@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { ControlService } from 'src/app/services/control.service';
+import { PassPage } from '../pass/pass.page';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,8 @@ export class LoginPage implements OnInit {
   opc: string;
 
   constructor(
-    private ctrlService: ControlService
+    private ctrlService: ControlService,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -39,6 +42,13 @@ export class LoginPage implements OnInit {
       this.r = true;
       this.opc = '¿No tienes cuenta? Crea una.'
     }
+  }
+
+  async passModal(){
+    const modal = await this.modalCtrl.create({
+      component: PassPage
+    })
+    await modal.present();
   }
 
 }

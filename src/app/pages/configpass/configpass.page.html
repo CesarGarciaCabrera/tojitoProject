@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualizar tu contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum nobis
+      explicabo, libero quaerat culpa mollitia? A nihil odio omnis, aliquid
+      facilis ad eius neque, velit ab temporibus animi nemo ut?
+      <br><br>
+      <form #formulario="ngForm">
+        <ion-item>
+          <ion-input
+            type="password"
+            name="pass1"
+            [(ngModel)]="passw1"
+            placeholder="Ingresa contraseña actual"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            type="password"
+            name="pass2"
+            [(ngModel)]="passw2"
+            placeholder="Ingresa tu nueva contraseña"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            type="password"
+            name="pass3"
+            [(ngModel)]="passw3"
+            placeholder="Confirmar nueva contraseña"
+            required>
+          </ion-input>
+        </ion-item>
+      </form>
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+
+    <div style="float: left; width: 50%;">
+      <ion-button color="medium" (click)="cancel()" expand="block">
+        Cancelar
+      </ion-button>
+    </div>
+    <div style="float: left; width: 50%;">
+      <ion-button color="purple" expand="block" [disabled]="formulario.invalid">
+        Actualizar
+      </ion-button>
+    </div>
+
+  </ion-toolbar>
+</ion-footer>
+

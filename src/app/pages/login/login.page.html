@@ -39,8 +39,13 @@
     <ion-button expand="full" color="orange" (click)="entrar(user)" [disabled]="formulario.invalid">
       Entrar
     </ion-button>
+    <ion-item class="ion-text-center intro" lines="none" (click)="passModal()">
+      <ion-label>
+        <p>¿Olvidaste tu contraseña?</p>
+      </ion-label>
+    </ion-item>
   </ion-card>
-
+  
   <ion-card *ngIf="r == false" class="animate__slideInUp animate__animated intro">
     <ion-card-header class="ion-text-center">
       <ion-card-subtitle>Registro de usuario</ion-card-subtitle>

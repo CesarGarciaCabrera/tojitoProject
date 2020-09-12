@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController, ModalController } from '@ionic/angular';
 import { ControlService } from 'src/app/services/control.service';
 import { DeletePage } from '../delete/delete.page';
+import { ConfigpassPage } from '../configpass/configpass.page';
 
 @Component({
   selector: 'app-ajusteuno',
@@ -71,9 +72,16 @@ export class AjusteunoPage implements OnInit {
     });
   }
 
-  async presentModal(){
+  async deleteModal(){
     const modal = await this.modalCtrl.create({
       component: DeletePage
+    })
+    await modal.present();
+  }
+
+  async updatepassModal(){
+    const modal = await this.modalCtrl.create({
+      component: ConfigpassPage
     })
     await modal.present();
   }

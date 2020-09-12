@@ -107,6 +107,9 @@ export class ControlService {
     })
   }
 
-  //Eliminar cuenta de usuario
+  //Reestablecer contraseña por correo
+  async emailPass(email: string){
+    return this.afAuth.sendPasswordResetEmail(email);
+  }
   
 }

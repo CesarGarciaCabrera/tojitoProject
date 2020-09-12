@@ -22,12 +22,12 @@
     <ion-label>Cambiar nombre de usuario</ion-label>
   </ion-item>
 
-  <ion-item>
+  <ion-item (click)="updatepassModal()">
     <ion-icon slot="start" name="shield"></ion-icon>
     <ion-label>Actualizar contraseña</ion-label>
   </ion-item>
 
-  <ion-item (click)="presentModal()">
+  <ion-item (click)="deleteModal()">
     <ion-icon slot="start" name="trash" color="danger"></ion-icon>
     <ion-label color="danger">Eliminar cuenta</ion-label>
   </ion-item>
