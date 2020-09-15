@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Actualizar tu contraseña</ion-title>
+    <ion-title>Actualizar Contraseña</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +17,7 @@
           <ion-input
             type="password"
             name="pass1"
-            [(ngModel)]="passw1"
+            [(ngModel)]="user.contrasena"
             placeholder="Ingresa contraseña actual"
             required>
           </ion-input>
@@ -58,7 +58,7 @@
       </ion-button>
     </div>
     <div style="float: left; width: 50%;">
-      <ion-button color="purple" expand="block" [disabled]="formulario.invalid">
+      <ion-button color="purple" expand="block" (click)="updatePass()" [disabled]="formulario.invalid">
         Actualizar
       </ion-button>
     </div>

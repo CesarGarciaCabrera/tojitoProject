@@ -12,7 +12,6 @@ export class HomePage implements OnInit {
 
   dataneg: any;
   numneg: number;
-  serv: ControlService = this.ctrlService;
 
   constructor(
     private firestore: AngularFirestore,
@@ -56,7 +55,7 @@ export class HomePage implements OnInit {
         loader.dismiss();
       });
     } catch(e){
-      this.serv.showToast(e);
+      this.ctrlService.showToast(e);
     }
   }
 

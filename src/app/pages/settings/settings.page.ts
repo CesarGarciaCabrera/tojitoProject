@@ -12,7 +12,6 @@ import { AlertController, NavController } from '@ionic/angular';
 export class SettingsPage implements OnInit {
 
   user = {} as Usuario;
-  serv: ControlService = this.ctrlService;
 
   constructor(
     private ctrlService: ControlService,
@@ -40,7 +39,7 @@ export class SettingsPage implements OnInit {
         {
           text: 'Continuar',
           handler: () => {
-            this.serv.singOut();
+            this.ctrlService.singOut();
           }
         }
       ]

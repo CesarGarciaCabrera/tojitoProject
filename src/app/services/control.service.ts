@@ -111,5 +111,10 @@ export class ControlService {
   async emailPass(email: string){
     return this.afAuth.sendPasswordResetEmail(email);
   }
+
+  //Reestablecer contraseña dentro de app
+  async updatePass(pass: string){
+    return (await this.afAuth.currentUser).updatePassword(pass);
+  }
   
 }

@@ -11,7 +11,6 @@ import { ControlService } from 'src/app/services/control.service';
 })
 export class PassPage implements OnInit {
 
-  serv: ControlService = this.ctrlService;
   email: string;
 
   constructor(
@@ -29,7 +28,7 @@ export class PassPage implements OnInit {
   }
 
   updatePass(){
-    this.serv.emailPass(this.email).then(d => {
+    this.ctrlService.emailPass(this.email).then(d => {
       this.cancel();
       console.log('Correo enviado');
     }).catch(err => {

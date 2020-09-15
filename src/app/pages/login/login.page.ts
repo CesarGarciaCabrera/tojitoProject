@@ -12,7 +12,6 @@ import { PassPage } from '../pass/pass.page';
 export class LoginPage implements OnInit {
 
   user = {} as Usuario;
-  serv: ControlService = this.ctrlService;
   r: boolean = false;
   opc: string;
 
@@ -26,11 +25,11 @@ export class LoginPage implements OnInit {
   }
 
   entrar(){
-    this.serv.login(this.user);
+    this.ctrlService.login(this.user);
   }
 
   registro(){
-    this.serv.registro(this.user);
+    this.ctrlService.registro(this.user);
   }
 
   changeScreen(){

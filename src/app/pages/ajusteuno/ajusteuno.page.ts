@@ -16,7 +16,6 @@ export class AjusteunoPage implements OnInit {
   user = {} as Usuario;
   newName: string;
   newEmail: string;
-  serv: ControlService = this.ctrlService;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -59,10 +58,10 @@ export class AjusteunoPage implements OnInit {
     this.newName = result.data.values.nombre;
     if(this.newName != ''){
       this.data(this.newName);
-      this.serv.showToast('Tu nombre de usuario ha sido actualizado.');
+      this.ctrlService.showToast('Tu nombre de usuario ha sido actualizado.');
     }
     else{
-      this.serv.showToast('¡Oh no! No haz introducido un nombre. Intenta de nuevo.');
+      this.ctrlService.showToast('¡Oh no! No haz introducido un nombre. Intenta de nuevo.');
     }
   }
 

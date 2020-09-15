@@ -12,7 +12,6 @@ import { ControlService } from 'src/app/services/control.service';
 export class DeletePage implements OnInit {
 
   user = {} as Usuario;
-  serv: ControlService = this.ctrlService;
 
   constructor(
     private modalCtrl: ModalController,
@@ -46,12 +45,12 @@ export class DeletePage implements OnInit {
     (await loader).present();
 
     (await user).delete().then( d => {
-      this.serv.showToast('Cuenta eliminada');
+      this.ctrlService.showToast('Cuenta eliminada');
       this.modalCtrl.dismiss();
       this.navCtrl.navigateBack('login');
       
     }).catch(e => {
-      this.serv.showToast('Ha ocurrido un error, intente más tarde');
+      this.ctrlService.showToast('Ha ocurrido un error, intente más tarde');
       this.modalCtrl.dismiss();
     });
     (await loader).dismiss();

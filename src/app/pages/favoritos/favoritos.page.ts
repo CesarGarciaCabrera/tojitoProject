@@ -14,7 +14,6 @@ export class FavoritosPage implements OnInit {
   dataneg: any;
   numfav: number;
   user = {} as Usuario;
-  serv: ControlService = this.ctrlService;
 
   constructor(
     private ctrlService: ControlService,
@@ -52,7 +51,7 @@ export class FavoritosPage implements OnInit {
         }
       });
     } catch(e){
-      this.serv.showToast(e);
+      this.ctrlService.showToast(e);
     }
   }
 

@@ -19,7 +19,6 @@ export class DetallesPage implements OnInit {
   idneg: string;
   check: boolean;
   icono: string;
-  serv: ControlService = this.ctrlService;
 
   constructor(
     private ctrlService: ControlService,
@@ -85,13 +84,13 @@ export class DetallesPage implements OnInit {
     if (this.check) {
       this.check = false;
       this.icono = 'star-outline';
-      this.serv.eliminarPost(this.user.id, this.idneg)
+      this.ctrlService.eliminarPost(this.user.id, this.idneg)
       console.log('Eliminado de fav');
     }
     else {
       this.check = true;
       this.icono = 'star';
-      this.serv.crearPost(this.dataneg, this.user.id, this.idneg);
+      this.ctrlService.crearPost(this.dataneg, this.user.id, this.idneg);
       console.log('Agregado a fav');
     }
   }
