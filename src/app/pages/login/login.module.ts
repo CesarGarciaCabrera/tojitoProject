@@ -9,17 +9,21 @@ import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
 import { PassPageModule } from '../pass/pass.module';
 import { PassPage } from '../pass/pass.page';
+import { TermsPage } from '../terms/terms.page';
+import { TermsPageModule } from '../terms/terms.module';
 
 @NgModule({
   entryComponents: [
-    PassPage
+    PassPage,
+    TermsPage
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    PassPageModule
+    PassPageModule,
+    TermsPageModule
   ],
   declarations: [LoginPage]
 })

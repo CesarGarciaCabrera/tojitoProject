@@ -5,4 +5,5 @@ export interface Negocio {
     calle: string;
     municipio: string;
     descripcion: string;
+    menu: {}
 }

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Negocio } from 'src/app/interfaces/negocio';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ControlService } from 'src/app/services/control.service';
+import { CartaPage } from '../carta/carta.page';
 
 @Component({
   selector: 'app-detalles',
@@ -25,7 +26,8 @@ export class DetallesPage implements OnInit {
     private actRoute: ActivatedRoute,
     private loadingCtrl: LoadingController,
     private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private modalCtrl: ModalController
   ) {
     this.idneg = this.actRoute.snapshot.paramMap.get("id");
   }
@@ -61,6 +63,7 @@ export class DetallesPage implements OnInit {
       this.dataneg.calle = data["calle"];
       this.dataneg.municipio = data["municipio"];
       this.dataneg.img = data["img"];
+      this.dataneg.menu = data["menu"];
     });
 
     (await loader).dismiss();
@@ -93,6 +96,17 @@ export class DetallesPage implements OnInit {
       this.ctrlService.crearPost(this.dataneg, this.user.id, this.idneg);
       console.log('Agregado a fav');
     }
+  }
+
+  async modalCard(){
+    const modal = await this.modalCtrl.create({
+      component: CartaPage,
+      componentProps: {
+        'nombre': this.dataneg.nombre,
+        'menu': this.dataneg.menu
+      }
+    });
+    return await modal.present();
   }
 
 }

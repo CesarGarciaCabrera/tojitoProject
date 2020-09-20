@@ -1,12 +1,13 @@
 <ion-content>
 
-  <ion-card class="intro">
+  <ion-card class="intro" mode="md">
     <ion-card-header>
       <ion-avatar class="logo"> <img src="assets/icon/logotojito.png"/> </ion-avatar>
       <h1 class="ion-text-center Panettone">Tojito</h1>
     </ion-card-header>
   </ion-card>
 
+  <!-- Card de inicio de sesión -->
   <ion-card *ngIf="r == true" class="animate__slideInUp animate__animated intro">
     <ion-card-header class="ion-text-center">
       <ion-card-subtitle>Iniciar sesión</ion-card-subtitle>
@@ -46,6 +47,7 @@
     </ion-item>
   </ion-card>
   
+  <!-- Card de registro de usuario -->
   <ion-card *ngIf="r == false" class="animate__slideInUp animate__animated intro">
     <ion-card-header class="ion-text-center">
       <ion-card-subtitle>Registro de usuario</ion-card-subtitle>
@@ -82,6 +84,18 @@
             [(ngModel)]="user.contrasena"
             required>
           </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-checkbox
+            color="purple"
+            slot="start"
+            [(ngModel)]="dataCheck.value"
+            name="check">
+          </ion-checkbox>
+          <ion-label color="medium">{{dataCheck.eti}}</ion-label>
+          <ion-button (click)="openTerms()" fill="clear" color="medium" slot="end">
+            <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+          </ion-button>
         </ion-item>
       </form>
     </ion-card-content>

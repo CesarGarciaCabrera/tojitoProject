@@ -68,17 +68,18 @@
           <p>{{dataneg.descripcion}}</p>
       </ion-text>
   </ion-item>
+
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
       <div style="float: left; width: 50%;">
-          <ion-button expand="block" color="danger" disabled="true">
+          <ion-button (click)="modalCard()" expand="block" color="orange">
               Menú
           </ion-button>
       </div>
       <div style="float: left; width: 50%;">
-          <ion-button expand="block" color="success" disabled="true">
+          <ion-button expand="block" color="purple" disabled="true">
               Mapa
           </ion-button>
       </div>

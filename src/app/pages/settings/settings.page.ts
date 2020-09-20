@@ -21,9 +21,10 @@ export class SettingsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getInfoUser();
   }
 
-  ionViewDidEnter(){
+  ionViewWillEnter(){
     this.getInfoUser();
   }
 
@@ -47,16 +48,21 @@ export class SettingsPage implements OnInit {
     await alert.present();
   };
 
-  ruta(){
+  rutaSettings(){
     this.navCtrl.navigateRoot('/ajusteuno');
   }
 
   async getInfoUser(){
-    this.afAuth.onAuthStateChanged( data => {
+    await this.afAuth.onAuthStateChanged( data => {
       this.user.id = data.uid;
       this.user.nombre = data.displayName;
       this.user.correo = data.email;
+      this.user.photo = data.photoURL;
     })
+  }
+
+  message(){
+    this.ctrlService.showToast('Pronto podrás personalizar tu cuenta, estamos trabajando en ello, agradecemos tu paciencia');
   }
 
 }

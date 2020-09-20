@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { DetallesPageRoutingModule } from './detalles-routing.module';
 
 import { DetallesPage } from './detalles.page';
+import { CartaPage } from '../carta/carta.page';
+import { CartaPageModule } from '../carta/carta.module';
 
 @NgModule({
+  entryComponents: [
+    CartaPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetallesPageRoutingModule
+    DetallesPageRoutingModule,
+    CartaPageModule
   ],
   declarations: [DetallesPage]
 })

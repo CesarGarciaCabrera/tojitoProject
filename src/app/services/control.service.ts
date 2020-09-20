@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController, LoadingController, NavController } from '@ionic/angular';
 import { Negocio } from '../interfaces/negocio';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage'
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class ControlService {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private firestore: AngularFirestore,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private storage: AngularFireStorage
   ) { }
 
   //Página de inicio de sesión (Login Page)
@@ -34,25 +36,31 @@ export class ControlService {
       })
     }
     catch(e){
-      this.showToast(e)
+      this.showToast('El correo electrónico o contraseña son incorrectos, verifique sus datos.');
     }
     (await loader).dismiss();
   }
 
   //Página de registro de usuario (Register Page)
-  async registro(us: Usuario){
+  async registro(us: Usuario, check: boolean){
     let loader = this.loadingCtrl.create({
       message: 'Por favor espere...'
     });
     (await loader).present();
 
-    try{
-      await this.afAuth.createUserWithEmailAndPassword(us.correo, us.contrasena).then(data => {
-        this.data(us);
-        this.showToast('Bienvenido a Tojito '+us.nombre);
-      });
-    } catch(e){
-      console.log(e);
+    if (check == true) {
+      try{
+        await this.afAuth.createUserWithEmailAndPassword(us.correo, us.contrasena).then(data => {
+          this.data(us);
+          this.showToast('Bienvenido a Tojito '+us.nombre);
+        });
+      }
+      catch(e){
+        console.log('Ha ocurrido un error, por favor, intente más tarde.');
+      }
+    }
+    else {
+      this.showToast('Por favor, acepta los términos y condiciones.');
     }
     (await loader).dismiss();
   }
@@ -60,7 +68,8 @@ export class ControlService {
   async data(us: Usuario){
     this.login(us);
     (await this.afAuth.currentUser).updateProfile({
-      displayName: us.nombre
+      displayName: us.nombre,
+      photoURL: 'assets/icon/userNull.jpg'
     });
   }
 
@@ -115,6 +124,40 @@ export class ControlService {
   //Reestablecer contraseña dentro de app
   async updatePass(pass: string){
     return (await this.afAuth.currentUser).updatePassword(pass);
+  }
+
+  //Subir archivo
+  async upload(name: string, id: string){
+    const message = name;
+    const filepath = 'photos/profile_'+id;
+    const ref = this.storage.ref(filepath);
+    try{
+      ref.putString(message, 'data_url').then(d => {
+        console.log(d);
+        this.storage.ref(filepath).getDownloadURL().subscribe(l => {
+          this.userPhoto(l);
+        });
+      });
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
+  //Actualizar foto
+  async userPhoto(url: string){
+    let loader = await this.loadingCtrl.create({
+      message: 'Actualizando foto...'
+    });
+    loader.present();
+    (await this.afAuth.currentUser).updateProfile({
+      photoURL: url
+    }).then(() => {
+      this.showToast('Foto de perfil actualizada');
+    }).catch(e => {
+      this.showToast('Ha ocurrido un error, por favor, intente más tarde');
+    });
+    loader.dismiss();
   }
   
 }

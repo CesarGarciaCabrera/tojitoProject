@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/central/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Foto de perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img src="{{user.photo}}" alt="Foto de Perfil"/>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div style="float: left; width: 33%;">
+      <ion-button (click)="takePhoto()" expand="block" fill="clear" color="medium">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </div>
+    <div style="float: left; width: 33%;">
+      <ion-button (click)="gallery()" expand="block" fill="clear" color="medium">
+        <ion-icon slot="icon-only" name="image"></ion-icon>
+      </ion-button>
+    </div>
+    <div style="float: left; width: 33%;">
+      <ion-button (click)="deletePhoto()" expand="block" fill="clear" color="medium">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

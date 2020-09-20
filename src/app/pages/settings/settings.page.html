@@ -4,14 +4,14 @@
 
   <ion-card mode="md">
     <ion-card-header class="ion-text-center">
-      <ion-avatar class="logo"> <img src="assets/icon/userNull.jpg"/> </ion-avatar>
+      <ion-avatar class="logo" (click)="message()"> <img src="{{user.photo}}" alt="Foto de Perfil"/> </ion-avatar>
       <ion-card-title>{{user.nombre}}</ion-card-title>
     </ion-card-header>
   </ion-card>
   
   <ion-list>
 
-    <ion-item (click)="ruta()" detail>
+    <ion-item (click)="rutaSettings()" detail>
       <ion-icon slot="start" name="person-outline"></ion-icon>
       <ion-label>
         <h2>Datos de la cuenta</h2>
@@ -32,5 +32,5 @@
       <ion-label>Cerrar sesión</ion-label>
     </ion-item>
   </ion-list>
-
+  
 </ion-content>

@@ -1,0 +1,31 @@
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="PanettoneDEMO">{{nombre}}</ion-card-title>
+      <ion-card-subtitle>Elige tu platillo favorito</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item-group *ngFor="let cat of menu">
+        <ion-item-divider>
+          <ion-label class="ion-text-capitalize">{{cat.nombre}}</ion-label>
+        </ion-item-divider>
+
+        <ion-item *ngFor="let com of cat.comidas">
+          <ion-label class="ion-text-capitalize">{{com.nombre}}</ion-label>
+          <ion-label class="ion-text-right">$ {{com.precio}}</ion-label>
+        </ion-item>
+  
+      </ion-item-group>
+    </ion-card-content>
+  </ion-card>
+
+  
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="orange" (click)="cancel()">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+
+</ion-content>

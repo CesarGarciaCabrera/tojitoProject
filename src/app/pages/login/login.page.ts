@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { ControlService } from 'src/app/services/control.service';
 import { PassPage } from '../pass/pass.page';
+import { TermsPage } from '../terms/terms.page';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,11 @@ export class LoginPage implements OnInit {
   user = {} as Usuario;
   r: boolean = false;
   opc: string;
+  check: boolean = false;
+  dataCheck = {
+    eti: 'Acepto términos y condiciones',
+    value: false
+  }
 
   constructor(
     private ctrlService: ControlService,
@@ -29,7 +35,7 @@ export class LoginPage implements OnInit {
   }
 
   registro(){
-    this.ctrlService.registro(this.user);
+    this.ctrlService.registro(this.user, this.dataCheck.value);
   }
 
   changeScreen(){
@@ -47,6 +53,13 @@ export class LoginPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: PassPage
     })
+    await modal.present();
+  }
+
+  async openTerms(){
+    const modal = await this.modalCtrl.create({
+      component: TermsPage
+    });
     await modal.present();
   }
 
